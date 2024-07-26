@@ -5,19 +5,20 @@ description = "Default template for PDM package"
 authors = [
     {name = "Dax Harris", email = "mvh3875@rit.edu"},
 ]
-dependencies = []
+dependencies = [
+    "circup>=2.0.3",
+    "setuptools>=71.1.0",
+    "click>=8.1.7",
+    "watchdog>=4.0.1",
+    "rich>=13.7.1",
+]
 requires-python = "==3.12.*"
 readme = "README.md"
 license = {text = "MIT"}
 
-
 [tool.pdm]
 distribution = false
 
-[tool.pdm.dev-dependencies]
-dev = [
-    "click>=8.1.7",
-    "rich>=13.7.1",
-    "rich-click>=1.8.3",
-    "fswatch>=0.1.1",
-]
+[tool.pdm.scripts]
+watch = "python watch.py"
+deploy = "python watch.py --deploy"
